@@ -1,5 +1,3 @@
-//
-
 #include <string>
 #include <iostream>
 
@@ -19,14 +17,12 @@ void PrintQuestion(int CodeSum, int CodeProduct, int QuestionNumber){
 }
 
 bool PlayGame(int Difficulty){
-
         //Reseting the random sequences
         srand(time(0));
-
         //Declare three numbers that are part of the code using a random generator
-        int NumberA = (1 + Difficulty) + (rand() % (3 + (3 * Difficulty)));
-        int NumberB = (1 + Difficulty) + (rand() % (3 + (3 * Difficulty)));
-        int NumberC = (1 + Difficulty) + (rand() % (3 + (3 * Difficulty)));
+        int NumberA = (1 + Difficulty) + (rand_r(0) % (3 + (3 * Difficulty)));
+        int NumberB = (1 + Difficulty) + (rand_r(0) % (3 + (3 * Difficulty)));
+        int NumberC = (1 + Difficulty) + (rand_r(0) % (3 + (3 * Difficulty)));
 
         //Calculate the sum and the product of the said numbers
         int CodeSum = NumberA + NumberB + NumberC;
@@ -53,9 +49,7 @@ bool PlayGame(int Difficulty){
 };  
 
 int main(){
-
     PrintIntroduction();//Prints the introduction text
-    
     bool bContinue = true;
 
     for(int i = 0; i < 11 && bContinue; i++){
@@ -65,7 +59,6 @@ int main(){
         std::cin.ignore();//Discards the buffer so any problem doesn't persist
 
     }
-
     if(bContinue){
         std::cout << "\n Congratulations you passed the test, welcome to the International Code Academy \n";
     }
